@@ -1,40 +1,30 @@
 #include <iostream>
 
+int getIntFromUser()
+{
+	std::cout << "Enter integer: ";
+	int input{};
+    std::cin >> input;
+
+	return input;
+
+}
+
 int main()
 {
-	std::cout << "Enter an integer: ";
+	std::cout << "Welcome to Mean Calc v1.1";
+	int a{ getIntFromUser() };
+	int b{ getIntFromUser() };
+	int c{ getIntFromUser() };
+	int d{ getIntFromUser() };
+	int e{ getIntFromUser() };
 
-	int first_num{ };
-	std::cin >> first_num;
-
-	std::cout << "Enter another interger: ";
-
-	int Second_num{ };
-	std::cin >> Second_num;
-
-	std::cout << "Enter another interger: ";
-
-	int Third_num{ };
-	std::cin >> Third_num;
-
-	std::cout << "Enter another interger: ";
-
-	int Fourth_num{ };
-	std::cin >> Fourth_num;
-
-	std::cout << "Enter another interger: ";
-
-	int Fifth_num{ };
-	std::cin >> Fifth_num;
-
-	std::cout << "Enter total number of integer (not including zero) : ";
-
-	int Total_num{ };
-	std::cin >> Total_num;
-
-	int All_num{ first_num + Second_num + Third_num + Fourth_num + Fifth_num };
+	int All_num{ a + b + c + d + e };
 	std::cout << "Total is: " << All_num << '\n' ;
-	std::cout << "Mean is:" << All_num / Total_num;
+
+	std::cout << "Mean is:" << All_num / 5;
 
 	return 0;
 }
+
+// this is nothing idk why its not pushing
