@@ -1,4 +1,6 @@
-#pragma once
+//#pragma once
 
-int readNumber();
-void writeAnswer(int x);
+//int readNumber();
+//void writeAnswer(int x);
+
+//Left Over
