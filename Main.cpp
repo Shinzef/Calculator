@@ -1,32 +1,55 @@
-#include <string>
-#include <iostream>
-#include <iomanip>
+#include  <iostream>
+#include <numeric>
+#include <vector>
 
-
-int askNumber()
+double getMean(double a, double b)
 {
-	std::cout << "enter integer: ";
-	long double input{};
-	std::cin >> input; // Gets input
-	return input;
+	return a / b;
 }
 
-int getTotal_andMean(long double a, long double b, long double c, long double d, long double e) // Gets the Total and Mean of the 5 integers
+double getNumfromUser(int i)
 {
-	long double x{ a + b + c + d + e }; // Adds them up
-	long double y{ x / 5 };				// Divides total to 5
-	std::cout << "The total is: " << x << '\n';
-	std::cout << "the mean is: " << y << '\n';
-	return x;
+	std::cout << "Enter the number of subject " << i << " :";
+	double total;
+	std::cin >> total;
+
+	return total;
+}
+double getNumberfromUser(int i)
+{
+	std::cout << "Enter the total number of subjects of number " << i << " :";
+	double total;
+	std::cin >> total;
+
+	return total;
 }
 
 int main()
 {
-	int a{ askNumber() };
-	int b{ askNumber() };
-	int c{ askNumber() };
-	int d{ askNumber() };
-	int e{ askNumber() };
-	getTotal_andMean(a, b, c, d, e);
-	return 0;
+	const int numberOne{ static_cast<int>(getNumberfromUser(1)) };
+	const int numberTwo{ static_cast<int>(getNumberfromUser(2)) };
+
+	std::vector < double > nOne(numberOne);
+	std::vector < double > nTWo(numberTwo);
+
+	for (int i{ 0 }; i < numberOne; ++i)
+	{
+		nOne[i] = { getNumfromUser(i + 1) };
+	}
+
+	std::cout << "Now for group 2:\n";
+
+	for (int i{ 0 }; i < numberTwo; ++i)
+	{
+		nTWo[i] = { getNumfromUser(i + 1) };
+	}
+
+	const double one_total{ static_cast<double>(std::accumulate(nOne.begin(), nOne.end(), 0.0)) };
+	const double two_total{ static_cast<double>(std::accumulate(nTWo.begin(), nTWo.end(), 0.0)) };
+
+	const double oneMean{ getMean(one_total, numberOne) };
+	const double twoMean{ getMean(two_total, numberTwo) };
+
+	std::cout << "Mean of group 1 is: " << oneMean << " , and the mean of group two is " << twoMean;
+
 }
